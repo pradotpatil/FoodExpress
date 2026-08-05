@@ -1,8 +1,5 @@
 import { useState } from "react";
-import axios from "axios";
 import api from "../services/api";
-const RESTAURANT_API = "https://foodexpress-qb0c.onrender.com/api/restaurants";
-const MENU_API = "https://foodexpress-qb0c.onrender.com/api/menu";
 
 function SeedData() {
   const [loading, setLoading] = useState(false);
@@ -47,7 +44,6 @@ function SeedData() {
         },
       ],
     },
-
     {
       name: "Domino's",
       address: "Kothrud, Pune",
@@ -86,7 +82,6 @@ function SeedData() {
         },
       ],
     },
-
     {
       name: "Burger King",
       address: "JM Road, Pune",
@@ -125,7 +120,6 @@ function SeedData() {
         },
       ],
     },
-
     {
       name: "KFC",
       address: "Viman Nagar, Pune",
@@ -164,7 +158,6 @@ function SeedData() {
         },
       ],
     },
-
     {
       name: "Biryani House",
       address: "Camp, Pune",
@@ -203,7 +196,6 @@ function SeedData() {
         },
       ],
     },
-
     {
       name: "Cafe Coffee Day",
       address: "Baner, Pune",
@@ -250,18 +242,21 @@ function SeedData() {
 
     try {
       for (const restaurant of restaurants) {
-        const restaurantResponse = await axios.post(RESTAURANT_API, {
-          name: restaurant.name,
-          address: restaurant.address,
-          cuisine: restaurant.cuisine,
-          rating: restaurant.rating,
-        });
+        const restaurantResponse = await api.post(
+          "/restaurants",
+          {
+            name: restaurant.name,
+            address: restaurant.address,
+            cuisine: restaurant.cuisine,
+            rating: restaurant.rating,
+          }
+        );
 
         const restaurantId = restaurantResponse.data.id;
 
         for (const food of restaurant.menu) {
-          await axios.post(MENU_API, {
-            restaurantId: restaurantId,
+          await api.post("/menu", {
+            restaurantId,
             name: food.name,
             description: food.description,
             price: food.price,
@@ -275,10 +270,15 @@ function SeedData() {
         "6 restaurants and 30 food items added successfully!"
       );
     } catch (error) {
-      console.error("Error adding data:", error);
+      console.error(
+        "Error adding sample data:",
+        error.response?.data || error.message
+      );
 
       setMessage(
-        "Failed to add data. Check the backend and browser console."
+        error.response?.data?.message ||
+          error.response?.data ||
+          "Failed to add data. Check Render logs and browser console."
       );
     } finally {
       setLoading(false);
@@ -286,53 +286,75 @@ function SeedData() {
   };
 
   return (
-    <div
+    <main
       style={{
-        maxWidth: "700px",
-        margin: "60px auto",
-        padding: "30px",
-        textAlign: "center",
-        background: "#ffffff",
-        borderRadius: "15px",
-        boxShadow: "0 5px 20px rgba(0,0,0,0.12)",
+        minHeight: "70vh",
+        padding: "60px 20px",
+        background: "#f5f5f5",
       }}
     >
-      <h1>Add FoodExpress Sample Data</h1>
-
-      <p>
-        This will add 6 restaurants and 30 food items.
-      </p>
-
-      <button
-        onClick={addAllData}
-        disabled={loading}
+      <div
         style={{
-          marginTop: "20px",
-          padding: "14px 30px",
-          border: "none",
-          borderRadius: "8px",
-          backgroundColor: loading ? "#999999" : "#ff512f",
-          color: "#ffffff",
-          fontSize: "17px",
-          cursor: loading ? "not-allowed" : "pointer",
+          maxWidth: "700px",
+          margin: "0 auto",
+          padding: "40px 30px",
+          textAlign: "center",
+          background: "#ffffff",
+          borderRadius: "15px",
+          boxShadow: "0 5px 20px rgba(0,0,0,0.12)",
         }}
       >
-        {loading ? "Adding Data..." : "Add All Restaurants and Foods"}
-      </button>
-
-      {message && (
-        <h3
+        <h1
           style={{
-            marginTop: "25px",
-            color: message.includes("successfully")
-              ? "green"
-              : "red",
+            fontSize: "42px",
+            marginBottom: "15px",
           }}
         >
-          {message}
-        </h3>
-      )}
-    </div>
+          Add FoodExpress Sample Data
+        </h1>
+
+        <p>
+          This will add 6 restaurants and 30 food items.
+        </p>
+
+        <button
+          type="button"
+          onClick={addAllData}
+          disabled={loading}
+          style={{
+            marginTop: "20px",
+            padding: "14px 30px",
+            border: "none",
+            borderRadius: "8px",
+            backgroundColor: loading
+              ? "#999999"
+              : "#ff512f",
+            color: "#ffffff",
+            fontSize: "17px",
+            cursor: loading
+              ? "not-allowed"
+              : "pointer",
+          }}
+        >
+          {loading
+            ? "Adding Data..."
+            : "Add All Restaurants and Foods"}
+        </button>
+
+        {message && (
+          <h3
+            style={{
+              marginTop: "25px",
+              color: message.includes("successfully")
+                ? "green"
+                : "red",
+            }}
+          >
+            {message}
+          </h3>
+        )}
+      </div>
+    </main>
   );
 }
 
