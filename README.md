@@ -243,4 +243,4 @@ Full Stack Java Developer
 ![Admin Dashboard](screenshots/admindashboard.png)
 
 ### Analytics
-![Analytics](screenshots/analytics.png)
+![Analytics](screenshots/Analytics.png)
