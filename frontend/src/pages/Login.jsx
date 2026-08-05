@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
 import "./Login.css";
-
+import api from "../services/api";
 function Login() {
   const navigate = useNavigate();
 
@@ -31,12 +31,9 @@ function Login() {
     }
 
     try {
-      await axios.put(
-        `http://localhost:8080/api/users/${userId}/fcm-token`,
-        {
-          fcmToken,
-        }
-      );
+     await api.put(`/users/${userId}/fcm-token`, {
+  fcmToken,
+});
 
       console.log("FCM token saved in MongoDB.");
     } catch (error) {
@@ -55,13 +52,10 @@ function Login() {
     try {
       setLoading(true);
 
-      const response = await axios.post(
-        "http://localhost:8080/api/auth/login",
-        {
-          email: formData.email.trim(),
-          password: formData.password,
-        }
-      );
+      const response = await api.post("/auth/login", {
+  email: formData.email.trim(),
+  password: formData.password,
+});
 
       const loggedInUser = response.data;
 
