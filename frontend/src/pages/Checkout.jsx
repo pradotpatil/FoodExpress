@@ -136,8 +136,7 @@ const placeFoodOrders = async (paymentId = "") => {
     };
 
     await placeOrder(order);
-    await deleteCartItem(item.id);
-  }
+await api.delete(`/cart/${item.id}`);  }
 
   navigate("/order-success", {
     state: {
@@ -161,9 +160,7 @@ const handleOnlinePayment = async () => {
   );
 
   try {
-    const orderResponse =
-  await createPaymentOrder(finalAmount);
-
+    const orderResponse = await api.post("/orders", orderData);
     const {
       orderId,
       amount,
