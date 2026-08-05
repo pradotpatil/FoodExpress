@@ -1,7 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 
-const MENU_API = "http://localhost:8080/api/menu";
+const MENU_API = axios.get("https://foodexpress-qb0c.onrender.com/api/restaurants");
 
 function AddMenuData() {
   const [loading, setLoading] = useState(false);
