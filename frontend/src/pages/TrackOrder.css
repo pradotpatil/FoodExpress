@@ -1,0 +1,172 @@
+.track-order-page {
+  min-height: 100vh;
+  padding: 45px 20px 80px;
+  background: #f5f7fb;
+}
+
+.track-order-heading {
+  max-width: 1200px;
+  margin: 0 auto 30px;
+  text-align: center;
+}
+
+.track-order-heading span {
+  display: inline-block;
+  margin-bottom: 10px;
+  padding: 7px 16px;
+  border-radius: 20px;
+  background: #fff0ed;
+  color: #ff4d4d;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.track-order-heading h1 {
+  margin: 0 0 10px;
+  font-size: 42px;
+}
+
+.track-order-heading p {
+  margin: 0;
+  color: #777;
+}
+
+.tracking-summary-card {
+  max-width: 1200px;
+  margin: 0 auto 25px;
+  padding: 24px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  border-radius: 18px;
+  background: #ffffff;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.08);
+}
+
+.tracking-summary-card div {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.tracking-summary-card span {
+  color: #777;
+  font-size: 13px;
+}
+
+.tracking-summary-card strong {
+  color: #222;
+}
+
+.tracking-map-card {
+  max-width: 1200px;
+  margin: 0 auto 25px;
+  overflow: hidden;
+  border-radius: 20px;
+  background: #ffffff;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.tracking-map {
+  width: 100%;
+  height: 480px;
+}
+
+.tracking-progress-card {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 28px;
+  display: flex;
+  align-items: flex-start;
+  border-radius: 18px;
+  background: #ffffff;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.08);
+}
+
+.tracking-progress-step {
+  min-width: 100px;
+  text-align: center;
+  color: #aaa;
+}
+
+.tracking-progress-step span {
+  width: 42px;
+  height: 42px;
+  margin: 0 auto 9px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background: #eeeeee;
+}
+
+.tracking-progress-step p {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.tracking-progress-step.active {
+  color: #28a745;
+}
+
+.tracking-progress-step.active span {
+  background: #28a745;
+  color: white;
+}
+
+.tracking-progress-line {
+  flex: 1;
+  height: 5px;
+  margin-top: 19px;
+  border-radius: 5px;
+  background: #eeeeee;
+}
+
+.tracking-progress-line.active {
+  background: #28a745;
+}
+
+.track-order-message {
+  min-height: 65vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+body.dark .track-order-page {
+  background: #121212;
+}
+
+body.dark .tracking-summary-card,
+body.dark .tracking-map-card,
+body.dark .tracking-progress-card {
+  background: #1e1e1e;
+  border: 1px solid #333;
+}
+
+@media (max-width: 800px) {
+  .tracking-summary-card {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .tracking-progress-card {
+    overflow-x: auto;
+  }
+
+  .tracking-map {
+    height: 380px;
+  }
+}
+
+@media (max-width: 520px) {
+  .tracking-summary-card {
+    grid-template-columns: 1fr;
+  }
+
+  .track-order-heading h1 {
+    font-size: 32px;
+  }
+}

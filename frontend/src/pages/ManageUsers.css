@@ -1,0 +1,158 @@
+.manage-users-page {
+  min-height: 100vh;
+  padding: 50px 20px 80px;
+  background: #f5f7fb;
+}
+
+.manage-users-heading {
+  max-width: 1100px;
+  margin: 0 auto 35px;
+  text-align: center;
+}
+
+.manage-users-heading span {
+  display: inline-block;
+  margin-bottom: 12px;
+  padding: 8px 18px;
+  border-radius: 25px;
+  background: #fff0ed;
+  color: #ff4d4d;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.manage-users-heading h1 {
+  margin: 0 0 10px;
+  color: #222;
+  font-size: 42px;
+}
+
+.manage-users-heading p {
+  margin: 0;
+  color: #777;
+  font-size: 17px;
+}
+
+.users-card {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 28px;
+  border-radius: 20px;
+  background: #ffffff;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.users-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.users-top input {
+  flex: 1;
+  padding: 13px 16px;
+  border: 1px solid #dddddd;
+  border-radius: 11px;
+  background: #fafafa;
+  font-size: 15px;
+  outline: none;
+}
+
+.users-top input:focus {
+  border-color: #ff4d4d;
+  background: #ffffff;
+  box-shadow: 0 0 0 4px rgba(255, 77, 77, 0.1);
+}
+
+.users-top button {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 10px;
+  background: #ff4d4d;
+  color: #ffffff;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.users-card table {
+  width: 100%;
+  min-width: 700px;
+  border-collapse: collapse;
+}
+
+.users-card {
+  overflow-x: auto;
+}
+
+.users-card th,
+.users-card td {
+  padding: 15px;
+  border-bottom: 1px solid #ececec;
+  text-align: left;
+}
+
+.users-card th {
+  background: #fafafa;
+  color: #555;
+  font-size: 14px;
+}
+
+.users-card td {
+  color: #333;
+  font-size: 14px;
+}
+
+.users-card h3 {
+  padding: 30px;
+  text-align: center;
+  color: #777;
+}
+
+@media (max-width: 700px) {
+  .manage-users-page {
+    padding: 30px 14px 60px;
+  }
+
+  .manage-users-heading h1 {
+    font-size: 32px;
+  }
+
+  .users-card {
+    padding: 20px;
+  }
+
+  .users-top {
+    flex-direction: column;
+  }
+
+  .users-top button {
+    width: 100%;
+  }
+}
+
+.delete-user-button {
+  padding: 9px 15px;
+  border: none;
+  border-radius: 9px;
+  background: #dc3545;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.delete-user-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(220, 53, 69, 0.25);
+}
+
+.users-card select {
+  padding: 8px 10px;
+  border: 1px solid #dddddd;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #333;
+  outline: none;
+}

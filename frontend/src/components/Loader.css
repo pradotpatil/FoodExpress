@@ -1,0 +1,15 @@
+.loader-container {
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+}
+
+.loader-container p {
+  margin: 0;
+  color: #666;
+  font-size: 17px;
+  font-weight: 600;
+}

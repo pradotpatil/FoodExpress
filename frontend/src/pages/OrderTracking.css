@@ -1,0 +1,254 @@
+.tracking-page {
+  min-height: 100vh;
+  padding: 50px 20px 80px;
+  background: #f7f7f7;
+}
+
+.tracking-heading {
+  max-width: 900px;
+  margin: 0 auto 35px;
+  text-align: center;
+}
+
+.tracking-heading span {
+  display: inline-block;
+  padding: 8px 18px;
+  margin-bottom: 12px;
+  border-radius: 25px;
+  background: #fff0ed;
+  color: #ff4d4d;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.tracking-heading h1 {
+  margin: 0 0 10px;
+  color: #222;
+  font-size: 42px;
+}
+
+.tracking-heading p {
+  margin: 0;
+  color: #777;
+  font-size: 17px;
+}
+
+.tracking-container {
+  max-width: 850px;
+  margin: 0 auto;
+}
+
+.tracking-card {
+  padding: 32px;
+  border-radius: 22px;
+  background: #ffffff;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.1);
+}
+
+.tracking-order-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding-bottom: 22px;
+  border-bottom: 1px solid #eeeeee;
+}
+
+.tracking-order-header p {
+  margin: 0 0 5px;
+  color: #888;
+  font-size: 13px;
+}
+
+.tracking-order-header h2 {
+  margin: 0;
+  color: #222;
+  font-size: 20px;
+  word-break: break-all;
+}
+
+.tracking-status {
+  padding: 9px 16px;
+  border-radius: 25px;
+  background: #e8fff0;
+  color: #1f8a45;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.tracking-food-info {
+  margin: 25px 0;
+  padding: 20px;
+  border-radius: 15px;
+  background: #fafafa;
+}
+
+.tracking-food-info h3 {
+  margin: 0 0 10px;
+  color: #222;
+  font-size: 21px;
+}
+
+.tracking-food-info p {
+  margin: 6px 0;
+  color: #666;
+}
+
+.tracking-timeline {
+  margin-top: 35px;
+}
+
+.tracking-step {
+  position: relative;
+  display: flex;
+  gap: 18px;
+  padding-bottom: 35px;
+}
+
+.tracking-step:not(:last-child)::before {
+  content: "";
+  position: absolute;
+  top: 42px;
+  left: 20px;
+  width: 3px;
+  height: calc(100% - 10px);
+  background: #dddddd;
+}
+
+.tracking-step.completed:not(:last-child)::before {
+  background: #28a745;
+}
+
+.tracking-circle {
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background: #e7e7e7;
+  color: #777;
+  font-weight: 700;
+  z-index: 1;
+}
+
+.tracking-step.completed .tracking-circle {
+  background: #28a745;
+  color: #ffffff;
+  box-shadow: 0 6px 18px rgba(40, 167, 69, 0.25);
+}
+
+.tracking-step-content h3 {
+  margin: 2px 0 7px;
+  color: #333;
+  font-size: 18px;
+}
+
+.tracking-step-content p {
+  margin: 0;
+  color: #777;
+  line-height: 1.5;
+}
+
+.delivery-person-card {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-top: 10px;
+  padding: 20px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #fff8f0, #ffffff);
+  border: 1px solid #f1e4d9;
+}
+
+.delivery-avatar {
+  width: 60px;
+  height: 60px;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background: #fff0ed;
+  font-size: 30px;
+}
+
+.delivery-person-card h3 {
+  margin: 0 0 5px;
+  color: #222;
+}
+
+.delivery-person-card p {
+  margin: 0 0 7px;
+  color: #777;
+  font-size: 14px;
+}
+
+.delivery-person-card strong {
+  color: #333;
+  font-size: 14px;
+}
+
+.back-orders-button {
+  width: 100%;
+  margin-top: 28px;
+  padding: 15px;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #ff512f, #dd2476);
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.back-orders-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(221, 36, 118, 0.22);
+}
+
+.tracking-loading {
+  min-height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  text-align: center;
+  color: #666;
+  font-size: 20px;
+}
+
+.tracking-loading button {
+  margin-top: 15px;
+  padding: 12px 22px;
+  border: none;
+  border-radius: 10px;
+  background: #ff4d4d;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+@media (max-width: 600px) {
+  .tracking-page {
+    padding: 30px 14px 60px;
+  }
+
+  .tracking-heading h1 {
+    font-size: 32px;
+  }
+
+  .tracking-card {
+    padding: 22px 18px;
+  }
+
+  .tracking-order-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .delivery-person-card {
+    align-items: flex-start;
+  }
+}
