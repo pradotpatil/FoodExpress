@@ -218,3 +218,29 @@ Full Stack Java Developer
 - CSS
 - Bootstrap
 - REST APIs
+
+## 📸 Project Screenshots
+
+### Home Page
+![Home](screenshots/home.png)
+
+### Restaurants
+![Restaurants](screenshots/restaurants.png)
+
+### Menu
+![Menu](screenshots/menu.png)
+
+### Cart
+![Cart](screenshots/cart.png)
+
+### Checkout
+![Checkout](screenshots/checkout.png)
+
+### Orders
+![Orders](screenshots/orders.png)
+
+### Admin Dashboard
+![Admin Dashboard](screenshots/admin-dashboard.png)
+
+### Analytics
+![Analytics](screenshots/analytics.png)
