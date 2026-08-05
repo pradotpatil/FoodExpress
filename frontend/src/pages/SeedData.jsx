@@ -1,8 +1,8 @@
 import { useState } from "react";
 import axios from "axios";
-
-const RESTAURANT_API = "http://localhost:8080/api/restaurants";
-const MENU_API = "http://localhost:8080/api/menu";
+import api from "../services/api";
+const RESTAURANT_API = "https://foodexpress-qb0c.onrender.com/api/restaurants";
+const MENU_API = "https://foodexpress-qb0c.onrender.com/api/menu";
 
 function SeedData() {
   const [loading, setLoading] = useState(false);
