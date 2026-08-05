@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
+import { toast } from "react-toastify";
+import api from "../services/api";
 import "./Register.css";
 
 function Register() {
@@ -33,42 +34,45 @@ function Register() {
       !formData.password.trim() ||
       !formData.confirmPassword.trim()
     ) {
-      alert("Please fill all fields.");
+      toast.warning("Please fill all fields.");
       return;
     }
 
     if (formData.password.length < 6) {
-      alert("Password must contain at least 6 characters.");
+      toast.warning(
+        "Password must contain at least 6 characters."
+      );
       return;
     }
 
     if (formData.password !== formData.confirmPassword) {
-      alert("Passwords do not match.");
+      toast.warning("Passwords do not match.");
       return;
     }
 
     try {
       setLoading(true);
 
-      await axios.post(
-        "http://localhost:8080/api/auth/register",
-        {
-          name: formData.name,
-          email: formData.email,
-          password: formData.password,
-        }
-      );
+      await api.post("/auth/register", {
+        name: formData.name.trim(),
+        email: formData.email.trim().toLowerCase(),
+        password: formData.password,
+      });
 
-      alert("Registration successful! Please login.");
+      toast.success(
+        "Registration successful! Please login."
+      );
 
       navigate("/login");
     } catch (error) {
       console.error("Registration error:", error);
 
       const message =
-        error.response?.data || "Registration failed.";
+        typeof error.response?.data === "string"
+          ? error.response.data
+          : "Registration failed.";
 
-      alert(message);
+      toast.error(message);
     } finally {
       setLoading(false);
     }
@@ -97,6 +101,7 @@ function Register() {
               placeholder="Enter your full name"
               value={formData.name}
               onChange={handleChange}
+              autoComplete="name"
             />
           </div>
 
@@ -110,6 +115,7 @@ function Register() {
               placeholder="Enter your email"
               value={formData.email}
               onChange={handleChange}
+              autoComplete="email"
             />
           </div>
 
@@ -123,6 +129,7 @@ function Register() {
               placeholder="Create a password"
               value={formData.password}
               onChange={handleChange}
+              autoComplete="new-password"
             />
           </div>
 
@@ -138,6 +145,7 @@ function Register() {
               placeholder="Enter password again"
               value={formData.confirmPassword}
               onChange={handleChange}
+              autoComplete="new-password"
             />
           </div>
 
