@@ -240,7 +240,7 @@ Full Stack Java Developer
 ![Orders](screenshots/orders.png)
 
 ### Admin Dashboard
-![Admin Dashboard](screenshots/admin-dashboard.png)
+![Admin Dashboard](screenshots/admindashboard.png)
 
 ### Analytics
 ![Analytics](screenshots/analytics.png)
