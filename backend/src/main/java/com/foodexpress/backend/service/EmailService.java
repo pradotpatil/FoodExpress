@@ -1,6 +1,5 @@
 package com.foodexpress.backend.service;
 
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
@@ -12,9 +11,6 @@ public class EmailService {
 
     private final JavaMailSender mailSender;
 
-    @Value("${spring.mail.username}")
-    private String senderEmail;
-
     public EmailService(JavaMailSender mailSender) {
         this.mailSender = mailSender;
     }
@@ -23,10 +19,16 @@ public class EmailService {
             String customerEmail,
             Order order) {
 
+        if (
+            customerEmail == null ||
+            customerEmail.trim().isEmpty()
+        ) {
+            return;
+        }
+
         SimpleMailMessage message =
                 new SimpleMailMessage();
 
-        message.setFrom(senderEmail);
         message.setTo(customerEmail);
         message.setSubject(
                 "FoodExpress - Order Confirmed"
@@ -34,9 +36,11 @@ public class EmailService {
 
         String emailBody =
                 "Hello " +
-                (order.getCustomerName() != null
+                (
+                    order.getCustomerName() != null
                         ? order.getCustomerName()
-                        : "Customer") +
+                        : "Customer"
+                ) +
                 ",\n\n" +
 
                 "Your order has been placed successfully.\n\n" +
@@ -46,7 +50,10 @@ public class EmailService {
                 "Food: " + order.getFoodName() + "\n" +
                 "Quantity: " + order.getQuantity() + "\n" +
                 "Total: Rs. " +
-                String.format("%.2f", order.getFinalAmount()) +
+                String.format(
+                    "%.2f",
+                    order.getFinalAmount()
+                ) +
                 "\n" +
                 "Payment Method: " +
                 order.getPaymentMethod() +
