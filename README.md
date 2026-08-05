@@ -224,8 +224,8 @@ Full Stack Java Developer
 ### Home Page
 ![Home](screenshots/home.png)
 
-### Restaurants
-![Restaurants](screenshots/restaurant.png)
+### Restaurant
+![Restaurant](screenshots/restaurant.png)
 
 ### Restaurants1
 ![Restaurants](screenshots/restaurants1.png)
